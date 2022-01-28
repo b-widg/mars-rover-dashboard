@@ -1,0 +1,18 @@
+<table id="manifest-table">
+  <thead>
+    <tr>
+      <th>Sol</th>
+      <th>Earth Date</th>
+      <th>Total Photos</th>
+      <th>Cameras</th>
+    </tr>
+  </thead>
+  <% rovers.getIn([0, 0, 'photos']).forEach((photo) => { %>
+    <tr>
+      <td><%= photo.getIn(['sol']) %></td>
+      <td><%= photo.getIn(['earth_date']) %></td>
+      <td><%= photo.getIn(['total_photos']) %></td>
+      <td><%= photo.getIn(['cameras']).toArray(); %></td>
+    </tr>
+  <% }); %>
+</table>

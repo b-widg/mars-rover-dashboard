@@ -1,0 +1,27 @@
+
+  <form id='search-form' method='get'>
+    <div>
+      <label for="sol">Sol: (max Sol <%= rover.getIn([0, 'max_sol']) %>)</label>
+      <input type="number" id="sol" name="sol" list="sol-options" value="<%= rover.getIn([0, 'photos', 0, 'sol']) %>" min="<%= rover.getIn([0, 'photos', 0, 'sol']) %>" max="<%= rover.getIn([0, 'max_sol']) %>">
+      <span class="validity"></span>
+      <!-- datalist will be created dynamically in form.js based on rover chosen-->
+      <datalist id="sol-options"></datalist>
+    </div>
+    <div>
+      <label for="earth-date">Earth Date:(max Date <%= rover.getIn([0, 'max_date']) %>)</label>
+      <input type="date" id="earth-date" name="earth-date" list="earth-date-options" value="<%= rover.getIn([0, 'photos', 0, 'earth_date']) %>" min="<%= rover.getIn([0, 'photos', 0, 'earth_date']) %>" max="<%= rover.getIn([0, 'max_date']) %>">
+      <!-- datalist will be created dynamically in form.js based on rover chosen-->
+      <datalist id="earth-date-options"></datalist>
+    </div>
+
+    <div id ="camera-options">
+      <!-- options for cameras will be created based rover and date chosen-->
+    </div>
+
+    <input type="reset"></input>
+    <!-- <button type="submit"></button> -->
+    <input type="submit" value="Submit">
+  </form>
+
+  
+

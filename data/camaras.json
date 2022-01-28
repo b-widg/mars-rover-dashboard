@@ -1,0 +1,40 @@
+{
+  "cameras": [
+    {
+      "Abbreviation": "FHAZ",
+      "name": "Front Hazard Avoidance Camera"
+    },
+    {
+      "Abbreviation": "RHAZ",
+      "name": "Rear Hazard Avoidance Camera"
+    },
+    {
+      "Abbreviation": "MAST",
+      "name": "Mast Camera"
+    },
+    {
+      "Abbreviation": "CHEMCAM",
+      "name": "Chemistry and Camera Complex"
+    },
+    {
+      "Abbreviation": "MAHLI",
+      "name": "Mars Hand Lens Imager"
+    },
+    {
+      "Abbreviation": "MARDI",
+      "name": "Mars Descent Imager"
+    },
+    {
+      "Abbreviation": "NAVCAM",
+      "name": "Navigation Camera"
+    },
+    {
+      "Abbreviation": "PANCAM",
+      "name": "Panoramic Camera"
+    },
+    {
+      "Abbreviation": "MINITES",
+      "name": "Miniature Thermal Emission Spectrometer (Mini-TES)"
+    }
+  ]
+}
