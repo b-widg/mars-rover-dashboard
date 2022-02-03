@@ -33,13 +33,13 @@ const verifyParams = (param) => {
   return index;
 };
 
-app.use('/:rover', async (req, res, next) => {
-  if (verifyParams(req.params.rover) === -1) {
-    res.render('404');
-    res.status(404).send('Not found.');
-  }
-  next();
-});
+// app.use('/:rover', async (req, res, next) => {
+//   if (verifyParams(req.params.rover) === -1) {
+//     res.render('404');
+//     res.status(404).send('Not found.');
+//   }
+//   next();
+// });
 
 // Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
 // app.use('/:rover/*', async (req, res, next) => {
