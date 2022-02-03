@@ -17,7 +17,7 @@ exports.fetchManifest = async (roverName) => {
 };
 
 exports.fetchPics = async (roverName, queryString) => {
-  console.log('fetchControler_fetchPics_queryString:', queryString);
+  // console.log('fetchControler_fetchPics_queryString:', queryString);
 
   if (queryString == null) {
     roverName === 'Curiosity'

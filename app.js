@@ -49,6 +49,7 @@ app.use('/:rover/*', async (req, res, next) => {
 
 app.get('/', async (req, res) => {
   const manifestZero = await fetchManifest(store.getIn(['rovers', 0, 'name']));
+  // console.log('file: app.js | line 52 | manifestZero', manifestZero);
   const manifestOne = await fetchManifest(store.getIn(['rovers', 1, 'name']));
   const manifestTwo = await fetchManifest(store.getIn(['rovers', 2, 'name']));
   Promise.all([
@@ -57,6 +58,7 @@ app.get('/', async (req, res) => {
     manifestTwo.photo_manifest,
   ]).then((manifests) => {
     manifests = fromJS([manifests]);
+    // console.log('file: app.js | line 60 | manifests', manifests);
     res.render('index', { rovers: manifests });
   });
 });
@@ -68,7 +70,7 @@ app.get('/:rover', async (req, res) => {
   const queryString = req._parsedOriginalUrl.search;
   const picData = await fetchPics(roverName, queryString);
   const picArray = picData.photos;
-  console.log('picArray.length:', picArray.length);
+  // console.log('picArray.length:', picArray.length);
   let manifest = await fetchManifest(roverName);
   manifest = [manifest.photo_manifest];
   // console.log('manifest:', manifest);
