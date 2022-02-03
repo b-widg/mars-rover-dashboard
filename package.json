@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "course project",
   "main": "app.js",
+  "engines": {
+    "node": "^16.13.0",
+    "npm": "^8.1.4"
+  },
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
@@ -25,8 +29,4 @@
     "url": "https://github.com/b-widg/mars-rover-dashboard/issues"
   },
   "homepage": "https://github.com/b-widg/mars-rover-dashboard#readme",
-  "engines": {
-    "node": "16.13.0",
-    "npm": "8.1.4"
-  }
 }
