@@ -41,11 +41,12 @@ app.use('/:rover', async (req, res, next) => {
   next();
 });
 
-app.use('/:rover/*', async (req, res, next) => {
-  res.render('404');
-  res.status(404).send('Not found.');
-  next();
-});
+// Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+// app.use('/:rover/*', async (req, res, next) => {
+//   res.render('404');
+//   res.status(404).send('Not found.');
+//   next();
+// });
 
 app.get('/', async (req, res) => {
   const manifestZero = await fetchManifest(store.getIn(['rovers', 0, 'name']));
