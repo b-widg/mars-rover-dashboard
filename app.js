@@ -14,9 +14,7 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views/pages'));
 // app.use(express.static('public'));
-// app.use(express.static('public/assets'));
 app.use('/', express.static(path.join(__dirname, 'public')));
-app.use('/', express.static(path.join(__dirname, 'public/assets')));
 
 let store = fromJS({
   rovers: [
