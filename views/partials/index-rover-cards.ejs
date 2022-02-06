@@ -1,7 +1,20 @@
 
-<% const roverList = rovers.getIn([0]) %>
+<% const formatDateUS = (dateString) => { %>
+  <% const dateArray = dateString.split('-') %>
+  <% dateArray.push(dateArray.shift()) %>
+  <% dateArray.forEach((num, i) => { %>
+    <% if (num[0] === '0') { %>
+      <% dateArray[i] = num[1] %>
+    <% } %>
+  <% }) %> 
+  <% const formattedDate = dateArray.join('/') %>
+  <% return formattedDate %>
+<% } %>
 
+<% const roverList = rovers.getIn([0]) %>
+ 
 <% roverList.forEach(rover => { %>
+  <% formatDateUS(rover.getIn(['launch_date'])) %>
   <article class="rover-card">
     <a href="./<%= rover.getIn(['name']) %>">
       <h2 class="card-heading"><%= rover.getIn(['name']) %></h2>
@@ -11,10 +24,10 @@
         alt=""
       />      
       <ul class="card-ul">
-        <li>Launch Date: <%= rover.getIn(['launch_date']) %></li>
-        <li>Landing Date: <%= rover.getIn(['landing_date']) %></li>
+        <li>Launch Date: <%= formatDateUS(rover.getIn(['launch_date'])) %></li>
+        <li>Landing Date: <%= formatDateUS(rover.getIn(['landing_date'])) %></li>
         <li>Mission Status: <%= rover.getIn(['status']) %></li>
-        <li>Most Recent Photos: <%= rover.getIn(['max_date']) %></li>
+        <li>Most Recent Photos: <%= formatDateUS(rover.getIn(['max_date'])) %></li>
         <li>Total Photos: <%= rover.getIn(['total_photos']) %></li>
       </ul>
     </a>
