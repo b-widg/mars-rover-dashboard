@@ -168,10 +168,7 @@ main {
   display: none;
 }
 
-/*------------------------------TABLET----------------------------*/
-/* @media only screen and (min-width: 481px) {} */
 
-/*------------------------------------------------------------------*/  
 @media(min-width: 769px) {
 
   header {
@@ -247,5 +244,43 @@ main {
 @media(min-width: 1025px) {
   .rover-card { 
     max-width: 325px;
+    
   }
 }
+
+/* 415 769 */
+/*------------------------------MOBILE LANDSCAPE----------------------------*/
+@media only screen and (max-height: 415px) and (min-width: 769px){
+  main {
+    margin-top: 2rem;
+  }
+
+  .rover-card {
+    max-width: fit-content
+  }
+  
+  .rover-card > a {
+    grid-row-gap: 0.3rem;
+    
+  }
+
+  .card-heading {
+    font-size: 4.3vh;
+  }
+
+  .card-img {
+   max-width: 60Vh;
+  }
+
+  .card-ul {
+    font-size: 3.2vh;
+  }
+
+  .search-form > div{
+    font-size: 3.2vh;
+  }
+
+  
+ }
+ /*------------------------------------------------------------------*/  
+ 
