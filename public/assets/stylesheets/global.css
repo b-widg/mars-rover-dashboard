@@ -163,10 +163,26 @@ main {
   grid-row-gap: 0.3rem;
 }
 
+.img-wrapper {
+  position: relative;
+  margin: 0;
+}
+
 .rover-img {
   min-height: 100%;
   min-width: 100%;
   object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+  color: #fff;
+  text-shadow: 2px 2px 3px #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 .table-area {

@@ -72,10 +72,8 @@ app.get('/:rover', async (req, res) => {
   const queryString = req._parsedOriginalUrl.search;
   const picData = await fetchPics(roverName, queryString);
   const picArray = picData.photos;
-  // console.log('picArray.length:', picArray.length);
   let manifest = await fetchManifest(roverName);
   manifest = [manifest.photo_manifest];
-  // console.log('manifest:', manifest);
   const singleRover = fromJS([manifest]);
   res.render('results-page', { rovers: singleRover, picArray: picArray });
 });
