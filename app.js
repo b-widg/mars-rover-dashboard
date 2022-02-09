@@ -68,8 +68,10 @@ app.get('/', async (req, res) => {
 // :rover = name of rover
 // rover-card partial needs to be passed an array of manifest objects.
 app.get('/:rover', async (req, res) => {
+  // console.log('file: app.js | line 71 | req', req);
   const roverName = req.params.rover;
   const queryString = req._parsedOriginalUrl.search;
+  // console.log('file: app.js | line 73 | queryString', queryString);
   const picData = await fetchPics(roverName, queryString);
   const picArray = picData.photos;
   let manifest = await fetchManifest(roverName);

@@ -23,17 +23,20 @@ const manifestData = tableRows.map((row) => {
 // manifestData[i][2]) = Total Photos
 // manifestData[i][3]) = [Array of Camera Options]
 
+// creates a datalist option with the supplied value and appends it to the element supplied
 const createDatalist = (elementId, cellValue) => {
   let optionNode = document.createElement('option');
   optionNode.setAttribute('value', cellValue);
   document.querySelector(elementId).appendChild(optionNode);
 };
 
-// create list of options to choose from in search form based on available sols.
-manifestData.forEach((row) => {
-  createDatalist('#sol-options', row[0]);
-  createDatalist('#earth-date-options', row[1]);
-});
+// create datalist of option elements for Sols and Earth Dates.
+const createDateOptions = () => {
+  manifestData.forEach((row) => {
+    createDatalist('#sol-options', row[0]);
+    createDatalist('#earth-date-options', row[1]);
+  });
+};
 
 // row = [Sol, Earth-Date, Total-Photos, [Array-Of-Cameras]]
 // Allow user to search by sol or earth date, but look up
@@ -61,14 +64,18 @@ const filterEvent = (event) => {
   }
 };
 
-createCameraOptions = (cameraOptions) => {
+const createCameraOptions = (cameraOptions) => {
   const cameraOptionsDiv = document.querySelector('#camera-options');
+  let radioLabel = document.createElement('p');
+  radioLabel.innerHTML = 'Choose a Camera (Optional):';
 
   // need to remove any esisting radio buttons before creating
   // new ones tp prevent duplicates
   while (cameraOptionsDiv.firstChild) {
     cameraOptionsDiv.removeChild(cameraOptionsDiv.lastChild);
   }
+
+  cameraOptionsDiv.appendChild(radioLabel);
 
   cameraOptions.forEach((camera) => {
     let radioBtn = document.createElement('input');
@@ -100,3 +107,7 @@ const earthDateField = document.querySelector('#earth-date');
 earthDateField.addEventListener('change', filterEvent);
 
 solField.addEventListener('change', filterEvent);
+
+// Call create cameraOptions passing the last SOL to get display camera
+// options for the most renent date which is the default date on the form.
+createCameraOptions(manifestData[manifestData.length - 1][3]);

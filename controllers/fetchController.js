@@ -17,8 +17,6 @@ exports.fetchManifest = async (roverName) => {
 };
 
 exports.fetchPics = async (roverName, queryString) => {
-  // console.log('fetchControler_fetchPics_queryString:', queryString);
-
   if (queryString == null) {
     roverName === 'Curiosity'
       ? (queryString = '?sol=3089')
@@ -26,7 +24,8 @@ exports.fetchPics = async (roverName, queryString) => {
       ? (queryString = '?sol=2190')
       : (queryString = '?sol=5104');
   }
-  queryString += '&page=1';
+  // adding page number to the query string will return limit of 25 photos per page
+  // queryString += '&page=1';
   try {
     let imageData = await fetch(
       `https://api.nasa.gov/mars-photos/api/v1/rovers/${roverName}/photos${queryString}&api_key=${process.env.API_KEY}`

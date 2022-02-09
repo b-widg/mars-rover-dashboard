@@ -33,6 +33,7 @@ body {
 }
 
 header {
+  z-index: 1;
   position: fixed;
   background-color: #444;
   border-bottom: 2px solid var(--mars-red);
@@ -148,6 +149,10 @@ main {
   font-size: medium;
 }
 
+#sol {
+  width: 10ch;
+}
+
 .form-btn:hover {
   cursor: pointer;
   color: var(--mars-red);
@@ -172,6 +177,8 @@ main {
   min-height: 100%;
   min-width: 100%;
   object-fit: cover;
+  box-shadow: 5px 7px 15px 1px rgba(0, 0, 0, 0.45);
+  -webkit-box-shadow: 5px 7px 15px 1px rgba(0, 0, 0, 0.45); 
 }
 
 .caption {
@@ -197,7 +204,6 @@ main {
   background-color: #0000008c;
   backdrop-filter: blur(0.2em);
   font-size: large;
-  /* transform: translate3d(0px, 0px, 0px); */
 }
 
 .table-area-hide {
