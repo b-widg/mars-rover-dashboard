@@ -2,7 +2,7 @@
 // to use in data validation and form options for user
 // starting by making an array of the table rows
 const tableRows = Array.from(
-  document.querySelectorAll('#manifest-table > tbody > tr')
+  document.querySelectorAll('.manifest-table > tbody > tr')
 );
 // creating new array where every table row is converted to
 // an array of table data elements.  then mapping to convert

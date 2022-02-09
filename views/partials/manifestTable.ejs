@@ -1,18 +1,25 @@
-<table id="manifest-table">
-  <thead>
-    <tr>
-      <th>Sol</th>
-      <th>Earth Date</th>
-      <th>Total Photos</th>
-      <th>Cameras</th>
-    </tr>
-  </thead>
-  <% rovers.getIn([0, 0, 'photos']).forEach((photo) => { %>
-    <tr>
-      <td><%= photo.getIn(['sol']) %></td>
-      <td><%= photo.getIn(['earth_date']) %></td>
-      <td><%= photo.getIn(['total_photos']) %></td>
-      <td><%= photo.getIn(['cameras']).toArray(); %></td>
-    </tr>
-  <% }); %>
-</table>
+<div class="table-container">
+  <div class="close-manifest">&#10005;</div>
+  <table class="manifest-table">
+    <thead>
+      <tr>
+        <th class="col1" >Sol</th>
+        <th class="col2" >Earth Date</th>
+        <th class="col3" >Total Photos</th>
+        <th class="col4" >Cameras</th>
+      </tr>
+    </thead>
+    </tbody>
+    <% rovers.getIn([0, 0, 'photos']).forEach((photo) => { %>
+      <tr>
+        <td class="col1"><%= photo.getIn(['sol']) %></td>
+        <td class="col2"><%= photo.getIn(['earth_date']) %></td>
+        <td class="col3"><%= photo.getIn(['total_photos']) %></td>
+        <td class="col4"><%= photo.getIn(['cameras']).toArray(); %></td>
+      </tr>
+    <% }); %>
+    </tbody>
+  </table>
+</div>
+
+
