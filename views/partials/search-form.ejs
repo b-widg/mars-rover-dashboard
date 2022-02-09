@@ -1,5 +1,5 @@
 <!-- refromat date from YYYY-MM-DD to M/D/YYYY -->
-<% const formatDateUS = (dateString) => { %>
+<% const formatDateUs = (dateString) => { %>
   <% const dateArray = dateString.split('-') %>
   <% dateArray.push(dateArray.shift()) %>
   <% dateArray.forEach((num, i) => { %>
@@ -20,7 +20,7 @@
     <datalist id="sol-options"></datalist>
   </div>
   <div>
-    <label for="earth-date">Earth Date:(max Date <%= formatDateUS(rover.getIn([0, 'max_date'])) %>)</label>
+    <label for="earth-date">Earth Date:(max Date <%= formatDateUs(rover.getIn([0, 'max_date'])) %>)</label>
     <input type="date" id="earth-date" name="earth-date" list="earth-date-options" value="<%= rover.getIn([0, 'photos', 0, 'earth_date']) %>" min="<%= rover.getIn([0, 'photos', 0, 'earth_date']) %>" max="<%= rover.getIn([0, 'max_date']) %>">
     <!-- datalist will be created dynamically in form.js based on rover chosen-->
     <datalist id="earth-date-options"></datalist>

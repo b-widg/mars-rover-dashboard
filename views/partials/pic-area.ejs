@@ -1,10 +1,22 @@
+<!-- refromat date from YYYY-MM-DD to M/D/YYYY -->
+<% const formatDateUs = (dateString) => { %>
+  <% const dateArray = dateString.split('-') %>
+  <% dateArray.push(dateArray.shift()) %>
+  <% dateArray.forEach((num, i) => { %>
+    <% if (num[0] === '0') { %>
+      <% dateArray[i] = num[1] %>
+    <% } %>
+  <% }) %> 
+  <% const formattedDate = dateArray.join('/') %>
+  <% return formattedDate %>
+<% } %>
 
 <% picArray.forEach(pic => { %>
   <figure class="img-wrapper">
     <img class="rover-img" src="<%- pic.img_src %>" alt="rover image" />
     <figcaption class="caption">
       <div><%- pic.rover.name %></div>
-      <div><%- pic.earth_date %></div>
+      <div><%- formatDateUs(pic.earth_date) %></div>
       <div>Sol <%- pic.sol %></div>
       <div><%- pic.camera.full_name %></div>
     </figcaption>
