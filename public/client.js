@@ -1,3 +1,5 @@
+// show/hide table manifest table on right
+
 const showHideBtn = document.querySelector('.show-hide-btn');
 const closeTableX = document.querySelector('.close-manifest');
 const tableArea = document.querySelector('.table-area');
@@ -23,4 +25,35 @@ showHideBtn.addEventListener('click', () => {
   } else {
     hideTable();
   }
+});
+
+//  show/hide modal on click
+
+const roverImgs = document.querySelectorAll('.rover-img');
+const captions = document.querySelectorAll('.caption');
+const modalCloseXs = document.querySelectorAll('.modal-close-x');
+
+roverImgs.forEach((roverImg) => {
+  roverImg.addEventListener('click', (event) => {
+    const modal = roverImg.parentElement.nextElementSibling;
+    modal.classList.add('modal-show');
+  });
+});
+
+captions.forEach((caption) => {
+  caption.addEventListener('click', (event) => {
+    const modal = caption.parentElement.nextElementSibling;
+    console.log('file: client.js | line 39 | modal', modal);
+    modal.classList.add('modal-show');
+  });
+});
+
+// stopping propogation of event because if it bubbles to imageModalWrapper,
+// it will reset the class to 'modal-show' and prevent the modal from closing
+modalCloseXs.forEach((modalCloseX) => {
+  modalCloseX.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const modal = modalCloseX.parentElement;
+    modal.classList.remove('modal-show');
+  });
 });

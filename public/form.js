@@ -80,6 +80,7 @@ const createCameraOptions = (cameraOptions) => {
   cameraOptions.forEach((camera) => {
     let radioBtn = document.createElement('input');
     radioBtn.setAttribute('type', 'radio');
+    radioBtn.setAttribute('class', 'radio');
     radioBtn.setAttribute('id', camera);
     radioBtn.setAttribute('name', 'camera');
     radioBtn.setAttribute('value', camera);

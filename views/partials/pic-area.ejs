@@ -15,10 +15,22 @@
   <figure class="img-wrapper">
     <img class="rover-img" src="<%- pic.img_src %>" alt="rover image" />
     <figcaption class="caption">
-      <div><%- pic.rover.name %></div>
-      <div><%- formatDateUs(pic.earth_date) %></div>
-      <div>Sol <%- pic.sol %></div>
-      <div><%- pic.camera.full_name %></div>
+      <p><%- pic.rover.name %></p>
+      <p><%- formatDateUs(pic.earth_date) %></p>
+      <p>Sol <%- pic.sol %></p>
+      <p><%- pic.camera.full_name %></p>
     </figcaption>
   </figure>
+  <div class="modal">
+    <div class="modal-close-x">&times;</div>
+    <a href="<%- pic.img_src %>" alt="original image" target="_blank">
+      <img class="modal-img" src="<%- pic.img_src %>" alt="rover image" />
+    </a>
+    <div class="modal-caption">
+      <p><%- pic.rover.name %></p>
+      <p><%- formatDateUs(pic.earth_date) %></p>
+      <p>Sol <%- pic.sol %></p>
+      <p><%- pic.camera.full_name %></p>
+    </div>
+  </div>
 <% }); %>
