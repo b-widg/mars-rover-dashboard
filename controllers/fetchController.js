@@ -17,12 +17,15 @@ exports.fetchManifest = async (roverName) => {
 };
 
 exports.fetchPics = async (roverName, queryString) => {
+  // Most recent date on Spitit and Opportunity only have a couple of pics, and Curiosity
+  // might be unpredictable, so we're feeding default dates for the original page load that have
+  // at least 25 pics to show.
   if (queryString == null) {
     roverName === 'Curiosity'
-      ? (queryString = '?sol=3089')
+      ? (queryString = '?sol=3089') // Curiosity default
       : roverName === 'Spirit'
-      ? (queryString = '?sol=2190')
-      : (queryString = '?sol=5104');
+      ? (queryString = '?sol=2190') // Spirit default
+      : (queryString = '?sol=5104'); // Opportunity default
   }
   // adding page number to the query string will return limit of 25 photos per page
   // queryString += '&page=1';
@@ -30,6 +33,8 @@ exports.fetchPics = async (roverName, queryString) => {
     let imageData = await fetch(
       `https://api.nasa.gov/mars-photos/api/v1/rovers/${roverName}/photos${queryString}&api_key=${process.env.API_KEY}`
     ).then((res) => res.json());
+    // console.log('file: fetchController.js | line 40 | imageData', imageData);
+    // api returns { errors: 'Invalid Rover Name' } if rover name in query is invalid
     return imageData;
   } catch (err) {
     console.log('fetchController imageData err:', err);

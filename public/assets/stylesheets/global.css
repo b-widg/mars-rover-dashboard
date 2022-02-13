@@ -174,7 +174,7 @@ main {
 .form-btn {
   background-color: var(--inputbackground-white);
   color: var(--header-gray);
-  border: 2.75px solid var(--text-gray);
+  border: 2.0px solid var(--text-gray);
   border-radius: 4px;
   font-size: medium;
   font-weight: 600;
@@ -185,7 +185,7 @@ main {
   cursor: pointer;
   background-color: #0000;
   color: var(--mars-red);
-  border: 2.75px solid var(--mars-red);
+  border: 2.0px solid var(--mars-red);
 }
 
 .pic-area {
@@ -228,7 +228,7 @@ main {
 
 .caption:hover {
   cursor: pointer;
-  color:var(--mars-red)
+  color:var(--mars-red);
 }
 
 .modal {

@@ -13,7 +13,6 @@ app.use(express.json());
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views/pages'));
-// app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 let store = fromJS({
@@ -28,30 +27,8 @@ let store = fromJS({
   ],
 });
 
-const verifyParams = (param) => {
-  const rovers = store.get('rovers');
-  const index = rovers.findIndex((rover) => rover.get('name') === param);
-  return index;
-};
-
-// app.use('/:rover', async (req, res, next) => {
-//   if (verifyParams(req.params.rover) === -1) {
-//     res.render('404');
-//     res.status(404).send('Not found.');
-//   }
-//   next();
-// });
-
-// Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-// app.use('/:rover/*', async (req, res, next) => {
-//   res.render('404');
-//   res.status(404).send('Not found.');
-//   next();
-// });
-
 app.get('/', async (req, res) => {
   const manifestZero = await fetchManifest(store.getIn(['rovers', 0, 'name']));
-  // console.log('file: app.js | line 52 | manifestZero', manifestZero);
   const manifestOne = await fetchManifest(store.getIn(['rovers', 1, 'name']));
   const manifestTwo = await fetchManifest(store.getIn(['rovers', 2, 'name']));
   Promise.all([
@@ -60,29 +37,34 @@ app.get('/', async (req, res) => {
     manifestTwo.photo_manifest,
   ]).then((manifests) => {
     manifests = fromJS([manifests]);
-    // console.log('file: app.js | line 60 | manifests', manifests);
     res.render('index', { rovers: manifests });
   });
 });
 
 // :rover = name of rover
 // rover-card partial needs to be passed an array of manifest objects.
-app.get('/:rover', async (req, res) => {
-  // console.log('file: app.js | line 71 | req', req);
+app.get('/:rover', async (req, res, next) => {
   const roverName = req.params.rover;
   const queryString = req._parsedOriginalUrl.search;
-  // console.log('file: app.js | line 73 | queryString', queryString);
   const picData = await fetchPics(roverName, queryString);
-  const picArray = picData.photos;
-  let manifest = await fetchManifest(roverName);
-  manifest = [manifest.photo_manifest];
-  const singleRover = fromJS([manifest]);
-  res.render('results-page', { rovers: singleRover, picArray: picArray });
+  // if invalid rover name id provided the api retutns { errors: 'Invalid Rover Name' }
+  if (picData.errors === 'Invalid Rover Name') {
+    res.render('404');
+  } else {
+    const picArray = picData.photos;
+    let manifest = await fetchManifest(roverName);
+    manifest = [manifest.photo_manifest];
+    const singleRover = fromJS([manifest]);
+    res.render('results-page', { rovers: singleRover, picArray: picArray });
+  }
+});
+
+app.get('*', (req, res) => {
+  res.render('404');
 });
 
 app.all((req, res, next) => {
   res.render('404');
-  res.status(404).send('Not found.');
 });
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
