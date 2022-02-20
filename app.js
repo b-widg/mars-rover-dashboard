@@ -63,8 +63,12 @@ app.get('*', (req, res) => {
   res.render('404');
 });
 
-app.all((req, res, next) => {
+app.all((req, res) => {
   res.render('404');
 });
 
-app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
+app.listen(PORT, () =>
+  console.log(
+    `App listening on port ${PORT}! 🎉 NODE_ENV=${process.env.NODE_ENV} 🎉`
+  )
+);

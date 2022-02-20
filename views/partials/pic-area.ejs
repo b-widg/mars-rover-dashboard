@@ -1,19 +1,19 @@
-<!-- refromat date from YYYY-MM-DD to M/D/YYYY -->
+<!-- refromat date from 'YYYY-MM-DD' to 'M/D/YYYY' -->
 <% const formatDateUs = (dateString) => { %>
-  <% const dateArray = dateString.split('-') %>
-  <% dateArray.push(dateArray.shift()) %>
-  <% dateArray.forEach((num, i) => { %>
-    <% if (num[0] === '0') { %>
-      <% dateArray[i] = num[1] %>
+  <% const dateArray = dateString.split('-') %> <!-- [ 'YYYY', 'MM', 'DD' ] --> 
+  <% dateArray.push(dateArray.shift()) %> <!-- [ 'MM', 'DD', 'YYYY' ] -->
+  <% dateArray.forEach((num, i) => { %> 
+    <% if (num[0] === '0') { %> <!-- check for leading zeros in month and day-->
+      <% dateArray[i] = num[1] %> <!-- if found replace with second number only [ 'M', 'D', 'YYYY' ] -->
     <% } %>
   <% }) %> 
-  <% const formattedDate = dateArray.join('/') %>
+  <% const formattedDate = dateArray.join('/') %> <!-- 'M/D/YYYY' -->
   <% return formattedDate %>
 <% } %>
 
-<% picArray.forEach(pic => { %>
+<% picArray.forEach((pic, index) => { %>
   <figure class="img-wrapper">
-    <img class="rover-img" src="<%- pic.img_src %>" alt="rover image" />
+    <img class="rover-img" src="<%- pic.img_src %>" alt="rover image" data-image-index="<%- index + 1 %>" data-total-imgages ="<%- picArray.length %>" />
     <figcaption class="caption">
       <p><%- pic.rover.name %></p>
       <p><%- formatDateUs(pic.earth_date) %></p>
@@ -21,16 +21,4 @@
       <p><%- pic.camera.full_name %></p>
     </figcaption>
   </figure>
-  <div class="modal">
-    <div class="modal-close-x">&times;</div>
-    <a href="<%- pic.img_src %>" alt="original image" target="_blank">
-      <img class="modal-img" src="<%- pic.img_src %>" alt="rover image" />
-    </a>
-    <div class="modal-caption">
-      <p><%- pic.rover.name %></p>
-      <p><%- formatDateUs(pic.earth_date) %></p>
-      <p>Sol <%- pic.sol %></p>
-      <p><%- pic.camera.full_name %></p>
-    </div>
-  </div>
 <% }); %>

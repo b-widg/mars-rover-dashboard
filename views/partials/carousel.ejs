@@ -1,0 +1,44 @@
+<!-- refromat date from 'YYYY-MM-DD' to 'M/D/YYYY' -->
+<% const formatDateUs = (dateString) => { %>
+  <% const dateArray = dateString.split('-') %> <!-- [ 'YYYY', 'MM', 'DD' ] --> 
+  <% dateArray.push(dateArray.shift()) %> <!-- [ 'MM', 'DD', 'YYYY' ] -->
+  <% dateArray.forEach((num, i) => { %> 
+    <% if (num[0] === '0') { %> <!-- check for leading zeros in month and day-->
+      <% dateArray[i] = num[1] %> <!-- if found replace with second number only [ 'M', 'D', 'YYYY' ] -->
+    <% } %>
+  <% }) %> 
+  <% const formattedDate = dateArray.join('/') %> <!-- 'M/D/YYYY' -->
+  <% return formattedDate %>
+<% } %>
+
+<div class="modal display-none">
+  <svg class="modal-close-x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+  <svg class="arrow-back" fill="#ffffff" version="1.1" viewBox="0 0 11.67 19.8" xmlns="http://www.w3.org/2000/svg">
+    <path d="m0-2.1h24v24h-24z" fill="none"/>
+    <path d="M 11.67,1.77 9.9,0 0,9.9 9.9,19.8 11.67,18.03 3.54,9.9 Z"/>
+  </svg>
+  <svg class="arrow-forward" fill="#ffffff" version="1.1" viewBox="0 0 11.67 19.8" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(-6.23,-2)">
+    <path d="m0 0h24v24h-24z" fill="none"/>
+    </g>
+    <g transform="translate(-6.23,-2)">
+      <polygon points="6.23 3.77 14.46 12 6.23 20.23 8 22 18 12 8 2"/>
+    </g>
+  </svg>
+
+  <% picArray.forEach((pic, index) => { %>
+    <div class="carousel-content display-none" data-image-index="<%- index + 1 %>">
+      <a href="<%- pic.img_src %>" alt="original image" target="_blank">
+        <img class="modal-img" src="<%- pic.img_src %>" alt="rover image" data-image-index="<%- index + 1 %>" data-total-imgages ="<%- picArray.length %>"/>
+      </a>
+      <div class="modal-caption">
+        <p class=image-counter>Image <%- index + 1 %> of <%- picArray.length %></p>
+        <br/>
+        <p><%- pic.rover.name %></p>
+        <p><%- formatDateUs(pic.earth_date) %></p>
+        <p>Sol <%- pic.sol %></p>
+        <p><%- pic.camera.full_name %></p>
+      </div>
+    </div>
+  <% }); %>    
+</div>
