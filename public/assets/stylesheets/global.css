@@ -190,9 +190,9 @@ main {
 }
 
 .pic-area {
-  width:  -webkit-fill-available;
-  width: -moz-available;
-  width: fill-available;
+  min-width:  -webkit-fill-available;
+  min-width: -moz-available;
+  min-width: fill-available;
   max-width: 95%;
   display: grid;
   grid-template-columns: 49% 49% ;
