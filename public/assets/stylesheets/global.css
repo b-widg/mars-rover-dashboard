@@ -30,6 +30,7 @@ body {
   background-color: #bda18b;
   height: 100vh;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   position: relative; 
   display: grid;
   grid-template-columns: 1fr;
