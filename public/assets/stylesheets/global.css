@@ -31,6 +31,8 @@ body {
   height: 100vh;
   min-height: 100vh;
   min-height: -webkit-fill-available;
+  min-width: 100vw;
+  min-width: -webkit-fill-available;
   position: relative; 
   display: grid;
   grid-template-columns: 1fr;
@@ -190,7 +192,7 @@ main {
 }
 
 .pic-area {
-  min-width:  -webkit-fill-available;
+  min-width: -webkit-fill-available;
   min-width: -moz-available;
   min-width: fill-available;
   max-width: 95%;
