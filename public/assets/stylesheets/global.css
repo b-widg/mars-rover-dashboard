@@ -197,7 +197,7 @@ main {
   width: -webkit-fill-available;
   width: -moz-available;
   width: fill-available;
-  height: -webkit-fill-available;
+  /* height: -webkit-fill-available; */
   max-width: 95%;
   display: grid;
   grid-template-columns: 49% 49% ;
