@@ -30,9 +30,6 @@ body {
   background-color: #bda18b;
   height: 100vh;
   min-height: 100vh;
-  min-height: -webkit-fill-available;
-  min-width: 100vw;
-  min-width: -webkit-fill-available;
   position: relative; 
   display: grid;
   grid-template-columns: 1fr;
@@ -81,7 +78,6 @@ nav {
 main {
   padding: 2.1rem 0.5rem;
   overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
   grid-area: 2 / 1 / 3 / 2;
   min-width: 100vw;
 
@@ -197,7 +193,7 @@ main {
   width: -webkit-fill-available;
   width: -moz-available;
   width: fill-available;
-  /* height: -webkit-fill-available; */
+  height: -webkit-fill-available;
   max-width: 95%;
   display: grid;
   grid-template-columns: 49% 49% ;
@@ -206,7 +202,7 @@ main {
   grid-row-gap: 0.3rem;
 }
 
-.img-wrapper { s
+.img-wrapper {
   position: relative;
   margin: 0;
 }
