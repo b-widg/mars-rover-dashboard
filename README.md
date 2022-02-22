@@ -14,6 +14,7 @@ This project was created for the Udacity Intermediate JavaScript Nano Degree pro
 - [dotenv](https://www.npmjs.com/package/dotenv) <img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png" alt="dotenv logo" width=16>
 - [express](https://www.npmjs.com/package/express) <img src="https://expressjs.com/images/favicon.png" alt="express logo" width=16 border-radius=50%>
 - [ejs](https://ejs.co/) <img src="https://ejs.co/favicon.svg" alt="ejs logo" width=23>
+## Dev Dependencies
 - [nodemon](https://www.npmjs.com/package/nodemon) <img src="https://user-images.githubusercontent.com/13700/35731649-652807e8-080e-11e8-88fd-1b2f6d553b2d.png" alt="nodemon logo" width=15>
 
 ## To Do
