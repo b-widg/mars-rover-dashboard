@@ -52,7 +52,7 @@ header {
 }
 
 /* Using visibility:hidden with size of 1px because visibility:hidden 
-affects document flow and you can't reverse display:none with CSS */
+affects document flow and you can't reverse display:none with CSS  */
 nav {
  visibility: hidden;
   height: 1px;
