@@ -1,6 +1,6 @@
 # Mars Rover Dashboard
 
-Explore Mars through the eyes of Curiosity, Spirit, and Opportunity!  Simple select your rover to start the journey. The you can search by earth date or sol (the number of Martian days the rover has been on the planet).  You’ll then have the option to view images based in their cameras used that day or skip this to view all images for the day.
+Explore Mars through the eyes of Curiosity, Spirit, and Opportunity!  Simply select your rover to start the journey. The you can search by earth date or sol (the number of Martian days the rover has been on the planet).  You’ll then have the option to view images based in their cameras used that day or skip this to view all images for the day.
 
 ### [https://mars-rover-picture-search.herokuapp.com/](https://mars-rover-picture-search.herokuapp.com/)
 ![Screenshot](./public/assets/images/ScreenShot.png)

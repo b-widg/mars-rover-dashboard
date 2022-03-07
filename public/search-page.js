@@ -6,6 +6,7 @@ const showHideBtn = document.querySelector('.show-hide-btn');
 const closeTableX = document.querySelector('.close-manifest');
 // const tableArea = document.querySelector('.table-area');
 
+// Adding to make hideTable and showTable higet order functions.
 const getTableArea = () => document.querySelector('.table-area');
 
 const hideTable = (getTableArea) => {
