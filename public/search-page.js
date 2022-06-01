@@ -4,19 +4,14 @@ const { List, Map, fromJS } = Immutable;
 
 const showHideBtn = document.querySelector('.show-hide-btn');
 const closeTableX = document.querySelector('.close-manifest');
-// const tableArea = document.querySelector('.table-area');
+const tableArea = document.querySelector('.table-area');
 
-// Adding to make hideTable and showTable higet order functions.
-const getTableArea = () => document.querySelector('.table-area');
-
-const hideTable = (getTableArea) => {
-  const tableArea = getTableArea();
+const hideTable = () => {
   tableArea.classList.remove('table-area-show');
   tableArea.classList.add('table-area-hide');
 };
 
-const showTable = (getTableArea) => {
-  const tableArea = getTableArea();
+const showTable = () => {
   tableArea.classList.remove('table-area-hide');
   tableArea.classList.add('table-area-show');
 };
@@ -26,14 +21,13 @@ if (closeTableX) {
 }
 
 showHideBtn.addEventListener('click', () => {
-  const tableArea = getTableArea();
   if (
     tableArea.classList.contains('table-area-hide') ||
     !tableArea.classList.contains('table-area-show')
   ) {
-    showTable(getTableArea);
+    showTable();
   } else {
-    hideTable(getTableArea);
+    hideTable();
   }
 });
 
